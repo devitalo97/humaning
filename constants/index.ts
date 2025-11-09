@@ -158,6 +158,7 @@ export const NAVIGATION_ITEMS = [
   { label: 'Sobre', href: '/sobre' },
   { label: 'Programa', href: '/programa' },
   { label: 'Treinamentos', href: '/treinamentos' },
+  { label: 'Clientes', href: '/clientes' },
   { label: 'Galeria', href: '/galeria' },
   { label: 'Contato', href: '/contato' },
 ];

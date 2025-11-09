@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Users, Target, TrendingUp, Award, BookOpen, CheckCircle, Star } from 'lucide-react'
+import { ArrowRight, Users, Target, TrendingUp, Award, BookOpen, CheckCircle, Star, Building2, Landmark, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { COMPANY_INFO, MAIN_PROGRAMS, SERVICES_CATEGORIES } from '@/constants'
@@ -115,6 +115,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Client Showcase */}
+      <section className="py-20 bg-muted/50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              Quem Confia na Humaning
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Mais de 50 organizações entre setor público e privado já transformaram suas equipes conosco
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 items-center">
+            {/* Government Sector Logos */}
+            <div className="col-span-full mb-8">
+              <div className="text-center">
+                <div className="inline-flex items-center px-3 py-1 bg-blue-100 rounded-full mb-4">
+                  <Landmark className="h-4 w-4 text-blue-600 mr-2" />
+                  <span className="text-blue-800 font-semibold text-sm">Setor Governamental</span>
+                </div>
+              </div>
+            </div>
+
+            {['Prefeitura de Vitória', 'Secretaria de Educação', 'Tribunal de Justiça', 'Assembleia Legislativa', 'Secretaria de Saúde', 'Prefeitura de Serra'].map((client, index) => (
+              <div key={index} className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <Building2 className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <p className="text-xs font-medium text-gray-700 text-center">{client}</p>
+                </div>
+              </div>
+            ))}
+
+            {/* Private Sector Logos */}
+            <div className="col-span-full mt-8 mb-8">
+              <div className="text-center">
+                <div className="inline-flex items-center px-3 py-1 bg-green-100 rounded-full mb-4">
+                  <Briefcase className="h-4 w-4 text-green-600 mr-2" />
+                  <span className="text-green-800 font-semibold text-sm">Setor Privado</span>
+                </div>
+              </div>
+            </div>
+
+            {['Vale S.A.', 'ArcelorMittal', 'Petrobras', 'Samarco', 'Tupy', 'Localhost Tech'].map((client, index) => (
+              <div key={index} className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm">
+                <div className="text-center">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <Building2 className="h-5 w-5 text-green-600" />
+                  </div>
+                  <p className="text-xs font-medium text-gray-700 text-center">{client}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild variant="outline" size="lg">
+              <Link href="/clientes">
+                Ver Todos os Clientes e Cases de Sucesso
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Main Program CTA */}
       <section className="py-20 gradient-humaning">
         <div className="container">
@@ -163,6 +230,11 @@ export default function Home() {
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
+                  <Link href="/clientes">
+                    Ver Nossos Clientes
+                  </Link>
+                </Button>
+                <Button asChild variant="ghost" size="lg">
                   <Link href="/contato">Solicitar Proposta</Link>
                 </Button>
               </div>

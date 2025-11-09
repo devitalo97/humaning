@@ -54,7 +54,7 @@ export function Header() {
               <span className="sr-only">Abrir menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white p-6">
             <div className="flex flex-col space-y-4">
               <div className="flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
