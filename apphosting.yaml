@@ -26,6 +26,7 @@ env:
     availability:
       - RUNTIME
       - BUILD
+      
   - variable: VITE_FIREBASE_APP_ID
     secret: FIREBASE_APP_ID
     availability:
