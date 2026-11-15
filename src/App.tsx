@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
+import { ScrollToTop } from "./components/common/ScrollToTop";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { HomePage } from "./pages/Home";
 import { AboutPage } from "./pages/About";
@@ -10,6 +11,7 @@ import { AlbumDetailPage } from "./pages/AlbumDetail";
 function App() {
   return (
     <MotionConfig reducedMotion="user">
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
