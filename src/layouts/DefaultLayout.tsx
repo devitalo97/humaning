@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail, Phone, Instagram, Linkedin } from "lucide-react";
 import { useState } from "react";
 import logoWhite from "@/assets/logo-white.svg";
 
@@ -184,16 +184,49 @@ export function DefaultLayout() {
 
                         <div>
                             <h4 className="font-semibold mb-4 text-secondary">Contato</h4>
-                            <ul className="space-y-2 text-sm text-primary-foreground/90">
-                                <li>contato@humaning.com.br</li>
-                                <li>(11) 99999-9999</li>
+                            <ul className="space-y-3 text-sm text-primary-foreground/90">
+                                <li>
+                                    <a
+                                        href="mailto:comercial@humaning.com.br"
+                                        className="inline-flex items-center gap-2.5 hover:text-accent focus-visible:outline-secondary py-1 transition-colors"
+                                    >
+                                        <Mail className="h-4 w-4 text-secondary shrink-0" aria-hidden="true" />
+                                        <span>comercial@humaning.com.br</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="tel:+5527999580841"
+                                        className="inline-flex items-center gap-2.5 hover:text-accent focus-visible:outline-secondary py-1 transition-colors"
+                                    >
+                                        <Phone className="h-4 w-4 text-secondary shrink-0" aria-hidden="true" />
+                                        <span>+55 27 999580841</span>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
 
                         <div>
                             <h4 className="font-semibold mb-4 text-secondary">Redes Sociais</h4>
-                            <div className="flex space-x-4 text-sm text-accent">
-                                <span>@humaning</span>
+                            <div className="flex items-center gap-3">
+                                <a
+                                    href="https://www.instagram.com/luizricardo.humane?obrf=OWJwZmFsZTB2YWFm"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Instagram (@luizricardo.humane)"
+                                    className="inline-flex items-center justify-center min-h-11 min-w-11 rounded-xl bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground focus-visible:outline-accent transition-colors"
+                                >
+                                    <Instagram className="h-5 w-5" aria-hidden="true" />
+                                </a>
+                                <a
+                                    href="https://www.linkedin.com/in/luiz-ricardo-pereira-de-souza-62634575/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="LinkedIn de Luiz Ricardo Pereira de Souza"
+                                    className="inline-flex items-center justify-center min-h-11 min-w-11 rounded-xl bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground focus-visible:outline-accent transition-colors"
+                                >
+                                    <Linkedin className="h-5 w-5" aria-hidden="true" />
+                                </a>
                             </div>
                         </div>
                     </div>
