@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Quote, TrendingUp, Users, CheckCircle, ArrowRight } from "lucide-react";
 import logoWhite from "@/assets/logo-white.svg";
+import luizRicardoPhoto from "@/assets/luiz-ricardo.jpg";
 
 export function AboutPage() {
     const containerVariants = {
@@ -104,11 +105,12 @@ export function AboutPage() {
                         viewport={{ once: true }}
                         className="bg-card rounded-3xl overflow-hidden shadow-xs border border-border/40 flex flex-col lg:flex-row"
                     >
-                        <div className="lg:w-1/3 h-[400px] lg:h-auto relative overflow-hidden group">
+                        <div className="lg:w-1/3 h-[420px] lg:h-auto relative overflow-hidden group">
                             <img
-                                src="https://placehold.co/400x500"
-                                alt="Luiz Ricardo Pereira de Souza"
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                src={luizRicardoPhoto}
+                                alt="Luiz Ricardo Pereira de Souza — Especialista em Comportamento"
+                                loading="lazy"
+                                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-primary/95 via-primary/50 to-transparent flex items-end p-8">
                                 <div className="text-primary-foreground">
