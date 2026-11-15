@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logoWhite from "@/assets/logo-white.svg";
 
 export function DefaultLayout() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,8 +22,17 @@ export function DefaultLayout() {
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                     <Link
                         to="/"
-                        className="flex items-center space-x-2 rounded-md focus-visible:outline-secondary"
+                        aria-label="Humaning — Página inicial"
+                        className="flex items-center gap-3 rounded-md focus-visible:outline-secondary"
                     >
+                        <img
+                            src={logoWhite}
+                            alt=""
+                            aria-hidden="true"
+                            width={38}
+                            height={35}
+                            className="h-9 w-auto object-contain"
+                        />
                         <span className="text-2xl font-bold tracking-tight text-primary-foreground">
                             Human<span className="text-secondary">ing</span>
                         </span>
@@ -124,9 +134,23 @@ export function DefaultLayout() {
                 <div className="container mx-auto px-4 py-12">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <div className="space-y-4">
-                            <h3 className="text-lg font-bold text-primary-foreground">
-                                Human<span className="text-secondary">ing</span>
-                            </h3>
+                            <Link
+                                to="/"
+                                aria-label="Humaning — Página inicial"
+                                className="inline-flex items-center gap-3 rounded-md focus-visible:outline-secondary"
+                            >
+                                <img
+                                    src={logoWhite}
+                                    alt=""
+                                    aria-hidden="true"
+                                    width={42}
+                                    height={39}
+                                    className="h-10 w-auto object-contain"
+                                />
+                                <span className="text-xl font-bold tracking-tight text-primary-foreground">
+                                    Human<span className="text-secondary">ing</span>
+                                </span>
+                            </Link>
                             <p className="text-sm text-primary-foreground/90 leading-relaxed">
                                 Desenvolvendo pessoas e transformando resultados através do autoconhecimento.
                             </p>

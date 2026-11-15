@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Quote, TrendingUp, Users, CheckCircle, ArrowRight } from "lucide-react";
+import logoWhite from "@/assets/logo-white.svg";
 
 export function AboutPage() {
     const containerVariants = {
@@ -33,6 +34,15 @@ export function AboutPage() {
                         transition={{ duration: 0.5 }}
                         className="max-w-4xl mx-auto space-y-6"
                     >
+                        <div className="inline-flex items-center justify-center p-4 rounded-2xl bg-primary border border-border shadow-md">
+                            <img
+                                src={logoWhite}
+                                alt="Logo Humaning"
+                                width={52}
+                                height={48}
+                                className="h-12 w-auto object-contain"
+                            />
+                        </div>
                         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground leading-tight">
                             Humaning:{" "}
                             <span className="text-primary underline decoration-secondary decoration-4 underline-offset-8">
@@ -205,8 +215,14 @@ export function AboutPage() {
 
             {/* CTA Section */}
             <section className="py-20 container px-4 mx-auto">
-                <div className="bg-primary text-primary-foreground rounded-3xl p-12 border border-border shadow-lg text-center md:text-left md:flex md:items-center md:justify-between">
-                    <div className="max-w-xl mb-8 md:mb-0">
+                <div className="relative overflow-hidden bg-primary text-primary-foreground rounded-3xl p-12 border border-border shadow-lg text-center md:text-left md:flex md:items-center md:justify-between">
+                    <img
+                        src={logoWhite}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute -right-8 -bottom-8 w-56 h-auto opacity-5 pointer-events-none select-none"
+                    />
+                    <div className="relative z-10 max-w-xl mb-8 md:mb-0">
                         <h2 className="text-3xl font-bold mb-4 text-primary-foreground">
                             Quer levar essa metodologia para sua empresa?
                         </h2>
@@ -215,6 +231,7 @@ export function AboutPage() {
                         </p>
                     </div>
                     <motion.div
+                        className="relative z-10"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                     >

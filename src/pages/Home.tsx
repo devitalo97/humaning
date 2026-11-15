@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Star, ArrowRight, Brain, Target, Users, Zap, MessageCircle, Ear } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import logoWhite from "@/assets/logo-white.svg";
 
 export function HomePage() {
     const benefits = [
@@ -25,6 +26,19 @@ export function HomePage() {
             <section className="relative py-20 md:py-32 overflow-hidden bg-background">
                 <div className="container px-4 mx-auto relative z-10">
                     <div className="max-w-3xl mx-auto text-center space-y-8">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="inline-flex items-center justify-center p-4 rounded-2xl bg-primary border border-border shadow-md"
+                        >
+                            <img
+                                src={logoWhite}
+                                alt="Logo Humaning"
+                                width={52}
+                                height={48}
+                                className="h-12 w-auto object-contain"
+                            />
+                        </motion.div>
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -131,24 +145,32 @@ export function HomePage() {
 
             {/* CTA Section */}
             <section className="container px-4 mx-auto text-center">
-                <div className="bg-primary text-primary-foreground rounded-3xl p-12 md:p-20 border border-border shadow-lg">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
-                        Pronto para dar o próximo passo?
-                    </h2>
-                    <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-                        Participe do nosso programa "Entender para Atender" e revolucione seus resultados.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button asChild size="lg" variant="secondary" className="w-full sm:w-auto focus-visible:ring-accent">
-                            <Link to="/training">Ver Treinamentos</Link>
-                        </Button>
-                        <Button
-                            size="lg"
-                            variant="outline"
-                            className="w-full sm:w-auto bg-accent text-accent-foreground border-accent hover:bg-accent/90 focus-visible:ring-secondary"
-                        >
-                            Fale Conosco
-                        </Button>
+                <div className="relative overflow-hidden bg-primary text-primary-foreground rounded-3xl p-12 md:p-20 border border-border shadow-lg">
+                    <img
+                        src={logoWhite}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute -right-10 -bottom-10 w-64 h-auto opacity-5 pointer-events-none select-none"
+                    />
+                    <div className="relative z-10">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
+                            Pronto para dar o próximo passo?
+                        </h2>
+                        <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+                            Participe do nosso programa "Entender para Atender" e revolucione seus resultados.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button asChild size="lg" variant="secondary" className="w-full sm:w-auto focus-visible:ring-accent">
+                                <Link to="/training">Ver Treinamentos</Link>
+                            </Button>
+                            <Button
+                                size="lg"
+                                variant="outline"
+                                className="w-full sm:w-auto bg-accent text-accent-foreground border-accent hover:bg-accent/90 focus-visible:ring-secondary"
+                            >
+                                Fale Conosco
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </section>
