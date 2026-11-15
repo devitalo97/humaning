@@ -36,14 +36,20 @@ export function GalleryPage() {
     return (
         <div className="min-h-screen bg-background">
             {/* Hero Section */}
-            <section ref={ref} className="relative h-[40vh] flex items-center justify-center overflow-hidden border-b bg-muted/20">
+            <section
+                ref={ref}
+                className="relative h-[40vh] flex items-center justify-center overflow-hidden border-b border-border/30 bg-muted/20"
+            >
                 <motion.div style={{ opacity, y }} className="text-center z-10 px-4">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-bold mb-4 tracking-tight"
+                        className="text-4xl md:text-6xl font-bold mb-4 tracking-tight text-foreground"
                     >
-                        Galeria de Eventos
+                        Galeria de{" "}
+                        <span className="inline-block bg-primary text-secondary px-3 py-0.5 rounded-lg">
+                            Eventos
+                        </span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -59,8 +65,12 @@ export function GalleryPage() {
             {/* Albums List */}
             <div className="container mx-auto px-4 py-20 min-h-[50vh]">
                 {loading ? (
-                    <div className="flex flex-col items-center justify-center h-40 space-y-4">
-                        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                    <div
+                        role="status"
+                        aria-live="polite"
+                        className="flex flex-col items-center justify-center h-40 space-y-4"
+                    >
+                        <Loader2 className="w-8 h-8 animate-spin text-primary" aria-hidden="true" />
                         <p className="text-muted-foreground">Carregando galeria...</p>
                     </div>
                 ) : albums.length === 0 ? (
@@ -73,40 +83,40 @@ export function GalleryPage() {
                             const isEven = index % 2 === 0;
 
                             return (
-                                <motion.div
+                                <motion.article
                                     key={album.id}
                                     initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
                                     className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-8 md:gap-16 items-center`}
                                 >
                                     {/* Image Section */}
-                                    <div className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-xl">
-                                        <div className="relative aspect-[4/3] group cursor-pointer">
-                                            <Link to={`/galeria/${album.id}`}>
+                                    <div className="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-lg border border-border/40">
+                                        <div className="relative aspect-4/3 group cursor-pointer">
+                                            <Link to={`/galeria/${album.id}`} className="block w-full h-full">
                                                 <img
                                                     src={album.coverImage}
                                                     alt={album.title}
-                                                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
+                                                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                                                 />
-                                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                                                <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors" />
                                             </Link>
                                         </div>
                                     </div>
 
                                     {/* Content Section */}
                                     <div className="w-full md:w-1/2 space-y-6">
-                                        <div className="space-y-2">
-                                            <div className="flex items-center gap-4 text-sm text-primary font-medium uppercase tracking-wider">
-                                                <span className="flex items-center gap-1">
-                                                    <MapPin className="w-4 h-4" /> {album.category}
+                                        <div className="space-y-3">
+                                            <div className="flex flex-wrap items-center gap-3 text-sm font-semibold uppercase tracking-wider">
+                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-secondary-foreground">
+                                                    <MapPin className="w-4 h-4" aria-hidden="true" /> {album.location}
                                                 </span>
-                                                <span className="flex items-center gap-1">
-                                                    <Calendar className="w-4 h-4" /> {album.date}
+                                                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent text-accent-foreground">
+                                                    <Calendar className="w-4 h-4" aria-hidden="true" /> {album.date}
                                                 </span>
                                             </div>
-                                            <h2 className="text-3xl md:text-4xl font-bold">{album.title}</h2>
+                                            <h2 className="text-3xl md:text-4xl font-bold text-foreground">{album.title}</h2>
                                             <p className="text-muted-foreground text-lg leading-relaxed">
                                                 {album.description}
                                             </p>
@@ -116,12 +126,15 @@ export function GalleryPage() {
                                             <Button asChild size="lg" className="group">
                                                 <Link to={`/galeria/${album.id}`}>
                                                     Ver Fotos do Evento
-                                                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                                    <ArrowRight
+                                                        className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1"
+                                                        aria-hidden="true"
+                                                    />
                                                 </Link>
                                             </Button>
                                         </div>
                                     </div>
-                                </motion.div>
+                                </motion.article>
                             );
                         })}
                     </div>

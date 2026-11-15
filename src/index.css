@@ -5,6 +5,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  /* Explicit Brand Palette Tokens (sRGB) */
+  --color-brand-navy: #000631;
+  --color-brand-teal: #6bd4cd;
+  --color-brand-slate: #344a6b;
+  --color-brand-cream: #fff8e6;
+  --color-brand-amber: #e58d00;
+
+  /* Semantic Theme Tokens */
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
@@ -37,51 +45,91 @@
   --radius-sm: calc(var(--radius) - 4px);
 }
 
-
 @layer base {
+  /*
+   * Brand Color Palette (sRGB & WCAG 2.2 AA Compliant)
+   * - Principal 1 (Deep Navy):  #000631 -> hsl(232.7 100% 9.6%)   | Luminance: 0.0035
+   * - Principal 2 (Warm Amber): #e58d00 -> hsl(36.9 100% 44.9%)   | Luminance: 0.3571
+   * - Accent (Soft Teal):       #6bd4cd -> hsl(176.0 55.0% 62.5%) | Luminance: 0.5462
+   * - Muted (Slate Blue):       #344a6b -> hsl(216.0 34.6% 31.2%) | Luminance: 0.0669
+   * - Surface (Warm Cream):     #fff8e6 -> hsl(43.2 100% 95.1%)   | Luminance: 0.9411
+   *
+   * Key WCAG 2.2 AA Contrast Ratios:
+   * - #000631 on #fff8e6: 18.52:1 (AAA Normal & Large Text)
+   * - #000631 on #6bd4cd: 11.14:1 (AAA Normal & Large Text)
+   * - #344a6b on #fff8e6:  8.48:1 (AAA Normal & Large Text)
+   * - #000631 on #e58d00:  7.61:1 (AAA Normal & Large Text)
+   * - #344a6b on #6bd4cd:  5.10:1 (AA Normal & Large Text)
+   */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 47 95% 50%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    color-scheme: light;
+
+    --brand-navy: #000631;
+    --brand-teal: #6bd4cd;
+    --brand-slate: #344a6b;
+    --brand-cream: #fff8e6;
+    --brand-amber: #e58d00;
+
+    --background: 43.2 100% 95.1%; /* #fff8e6 */
+    --foreground: 232.7 100% 9.6%; /* #000631 (18.52:1 vs background) */
+
+    --card: 43.2 100% 95.1%; /* #fff8e6 */
+    --card-foreground: 232.7 100% 9.6%; /* #000631 (18.52:1 vs card) */
+
+    --popover: 43.2 100% 95.1%; /* #fff8e6 */
+    --popover-foreground: 232.7 100% 9.6%; /* #000631 (18.52:1 vs popover) */
+
+    --primary: 232.7 100% 9.6%; /* #000631 - Principal 1 */
+    --primary-foreground: 43.2 100% 95.1%; /* #fff8e6 (18.52:1 vs primary) */
+
+    --secondary: 36.9 100% 44.9%; /* #e58d00 - Principal 2 */
+    --secondary-foreground: 232.7 100% 9.6%; /* #000631 (7.61:1 vs secondary) */
+
+    --muted: 176.0 55.0% 62.5%; /* #6bd4cd */
+    --muted-foreground: 216.0 34.6% 31.2%; /* #344a6b (8.48:1 vs background, 5.10:1 vs muted) */
+
+    --accent: 176.0 55.0% 62.5%; /* #6bd4cd */
+    --accent-foreground: 232.7 100% 9.6%; /* #000631 (11.14:1 vs accent) */
+
+    --destructive: 0 75% 38%;
+    --destructive-foreground: 43.2 100% 95.1%;
+
+    --border: 216.0 34.6% 31.2%; /* #344a6b (8.48:1 vs background) */
+    --input: 216.0 34.6% 31.2%; /* #344a6b */
+    --ring: 232.7 100% 9.6%; /* #000631 */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 47 95% 50%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    color-scheme: dark;
+
+    --background: 232.7 100% 9.6%; /* #000631 - Principal 1 */
+    --foreground: 43.2 100% 95.1%; /* #fff8e6 (18.52:1 vs background) */
+
+    --card: 232.7 100% 9.6%; /* #000631 */
+    --card-foreground: 43.2 100% 95.1%; /* #fff8e6 (18.52:1 vs card) */
+
+    --popover: 232.7 100% 9.6%; /* #000631 */
+    --popover-foreground: 43.2 100% 95.1%; /* #fff8e6 (18.52:1 vs popover) */
+
+    --primary: 36.9 100% 44.9%; /* #e58d00 - Principal 2 (7.61:1 vs background) */
+    --primary-foreground: 232.7 100% 9.6%; /* #000631 (7.61:1 vs primary) */
+
+    --secondary: 176.0 55.0% 62.5%; /* #6bd4cd (11.14:1 vs background) */
+    --secondary-foreground: 232.7 100% 9.6%; /* #000631 (11.14:1 vs secondary) */
+
+    --muted: 216.0 34.6% 31.2%; /* #344a6b */
+    --muted-foreground: 176.0 55.0% 62.5%; /* #6bd4cd (5.10:1 vs muted, 11.14:1 vs background) */
+
+    --accent: 216.0 34.6% 31.2%; /* #344a6b */
+    --accent-foreground: 43.2 100% 95.1%; /* #fff8e6 (8.48:1 vs accent) */
+
+    --destructive: 0 75% 38%;
+    --destructive-foreground: 43.2 100% 95.1%;
+
+    --border: 216.0 34.6% 31.2%; /* #344a6b */
+    --input: 216.0 34.6% 31.2%; /* #344a6b */
+    --ring: 36.9 100% 44.9%; /* #e58d00 (7.61:1 vs background) */
   }
 }
 
@@ -90,7 +138,29 @@
     @apply border-border;
   }
 
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* WCAG 2.2 AA 2.4.7 Focus Visible & 2.4.11 Focus Not Obscured */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    scroll-margin-top: 5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
